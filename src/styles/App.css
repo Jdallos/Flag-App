@@ -1,0 +1,12 @@
+.App{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(rgba(179, 229, 252, 0.95), rgba(179, 229, 252, 0.8)),url('../images/background.png');
+  background-position: center;
+  background-size: contain;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  font-family: 'Lora', serif;
+}

@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{ useState } from 'react';
+import FlagApp from './FlagApp';
+import {Routes, Route} from 'react-router-dom';
+import Details from './Details';
+import Redirect from './Redirect';
+import Footer from './Footer';
+import './styles/App.css';
 
 function App() {
+    // Can this state be moved into FlagApp?
+    const [detailsData, setDetailsData] = useState();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<FlagApp setDetailsData={setDetailsData} />} />
+        <Route path="/details/:countryName" element={<Details data={detailsData} />} />
+        <Route path="*" element={<Redirect />} />
+
+      </Routes>
+      <Footer />
     </div>
   );
 }

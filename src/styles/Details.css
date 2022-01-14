@@ -1,0 +1,36 @@
+.Details section div {
+  margin: 5% 0 10% 0;
+  font-size: 1.2em;
+  letter-spacing: 0.1rem;
+}
+
+.Details section nav {
+  text-align: right;
+  font-size: 1.5em;
+  color: rgb(32, 29, 1);
+  margin:1rem;
+}
+
+.Details section a:visited {
+  color: rgb(32, 29, 1);
+}
+
+.Details h1 {
+  color: rgb(209, 157, 26);
+  font-size: 2em;
+  border-bottom: double 0.2rem goldenrod;
+  width: fit-content;
+}
+
+.Details-ListKey{
+    font-weight:700;
+}
+
+.Details-Image{
+  margin-bottom:5rem;
+}
+
+.Details-Image img {
+  width: 600px;
+  height: 400px;
+}

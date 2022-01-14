@@ -1,0 +1,21 @@
+.Footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(218, 165, 32, 0.9);
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  height: 25px;
+}
+
+.Footer a {
+  color: rgb(32, 29, 1);
+  font-size: 1em;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.Footer a:visited {
+  color: rgb(32, 29, 1);
+}
