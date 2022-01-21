@@ -17,7 +17,7 @@ export default function Details({ data }) {
                 ?
                 <>
                     <section>
-                        <nav><Link to="/">Back to all flags</Link></nav>
+                        <nav><Link to="/Flag-App/">Back to all flags</Link></nav>
                         <div>
                             <h1>{data.name.common}</h1>
                             <img src={data.flags.png} alt={data.name.common} />

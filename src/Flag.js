@@ -19,7 +19,7 @@ function Flag({ name, image, region, isSaved, saveFlag, id, setDetailsData, coun
             <img src={image} alt={name}/>
             <div>
                 {!isSaved ? <button className="Flag-Save" onClick={handleSave}>Save</button> : <button className="Flag-Remove" onClick={handleRemove}>Remove</button>}
-                <Link className="Flag-More" to={`/details/${name}`} onClick={handleClick} >More</Link>
+                <Link className="Flag-More" to={`/Flag-App/details/${name}`} onClick={handleClick} >More</Link>
             </div>
         </div>
     )

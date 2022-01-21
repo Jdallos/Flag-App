@@ -13,9 +13,9 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<FlagApp setDetailsData={setDetailsData} />} />
-        <Route path="/details/:countryName" element={<Details data={detailsData} />} />
-        <Route path="*" element={<Redirect />} />
+        <Route path="/Flag-App/" element={<FlagApp setDetailsData={setDetailsData} />} />
+        <Route path="/Flag-App/details/:countryName" element={<Details data={detailsData} />} />
+        <Route path="/Flag-App/*" element={<Redirect />} />
 
       </Routes>
       <Footer />
