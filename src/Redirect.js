@@ -15,8 +15,8 @@ export default function Redirect() {
 
   return (
     <div>
-      {counter === 0 && <Navigate to="/Flag-App/" />}
-      <nav><Link to="/Flag-App/">Back to all flags</Link></nav>
+      {counter === 0 && <Navigate to="/Flag-App" />}
+      <nav><Link to="/Flag-App">Back to all flags</Link></nav>
       <h1>Whoops! Something went wrong, please go back and try again.</h1>
       <p>You will be automatically redirected in {counter}</p>
     </div>
