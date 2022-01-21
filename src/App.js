@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/Flag-App" element={<FlagApp setDetailsData={setDetailsData} />} />
         <Route path="/Flag-App/details/:countryName" element={<Details data={detailsData} />} />
-        <Route path="/Flag-App/*" element={<Redirect />} />
+        <Route path="*" element={<Redirect />} />
 
       </Routes>
       <Footer />
