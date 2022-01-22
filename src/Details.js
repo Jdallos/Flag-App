@@ -55,7 +55,7 @@ export default function Details({ data }) {
                     </div>
                 </>
                 :
-                <Navigate to="/redirect" />
+                <Navigate to="/redirect" replace />
             }
         </div>
     )
