@@ -19,6 +19,11 @@ Special care was taken in order to:
 
     -Increase UX by incorperating the Unspash API to provide country related images where possible.
 
+### Known Issues:
+    -redirect/ catch all route not functioning when deployed to github pages.
+    -This is currently a desktop application and not yet responsive.
+
+
 ### Updates:
 
 In the future I hope to add:
