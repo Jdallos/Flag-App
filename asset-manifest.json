@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Flag-App/static/css/main.23f63d5c.css",
-    "main.js": "/Flag-App/static/js/main.165de6ff.js",
+    "main.css": "/Flag-App/static/css/main.834f12ff.css",
+    "main.js": "/Flag-App/static/js/main.3dcebe87.js",
     "static/js/787.17eca332.chunk.js": "/Flag-App/static/js/787.17eca332.chunk.js",
     "static/media/background.png": "/Flag-App/static/media/background.719a41fd4d482eda20f2.png",
     "index.html": "/Flag-App/index.html",
-    "main.23f63d5c.css.map": "/Flag-App/static/css/main.23f63d5c.css.map",
-    "main.165de6ff.js.map": "/Flag-App/static/js/main.165de6ff.js.map",
+    "main.834f12ff.css.map": "/Flag-App/static/css/main.834f12ff.css.map",
+    "main.3dcebe87.js.map": "/Flag-App/static/js/main.3dcebe87.js.map",
     "787.17eca332.chunk.js.map": "/Flag-App/static/js/787.17eca332.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.23f63d5c.css",
-    "static/js/main.165de6ff.js"
+    "static/css/main.834f12ff.css",
+    "static/js/main.3dcebe87.js"
   ]
 }
