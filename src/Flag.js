@@ -1,21 +1,20 @@
-import React from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import React, {useContext} from 'react';
+import { useNavigate} from 'react-router-dom';
+import {SaveContext} from './contexts/SaveContext';
 import './styles/Flag.css';
 
-function Flag({ name, image, region, isSaved, saveFlag, id, countryData, moreInfo }) {
-    function handleSave(){
-        saveFlag(id, true);
+function Flag({ name, image, region, isSaved, id, countryData }) {
+
+    const {toggleSaveFlag} = useContext(SaveContext);
+
+    function handleToggleSave(){
+        toggleSaveFlag(id, !isSaved);
     }
-    function handleRemove(){
-        saveFlag(id, false);
-    }
-    // function handleClick(){
-    //     setDetailsData({...countryData});
-    // }
+  
     let navigate = useNavigate();
 
-    function handleClick() {
-      navigate(`/details/${name}`, {state: {...countryData, isSaved}});
+    function handleMoreRoute() {
+      navigate(`/details/${name}`, {state: {...countryData, isSaved, id}});
     }
 
     return (
@@ -24,9 +23,8 @@ function Flag({ name, image, region, isSaved, saveFlag, id, countryData, moreInf
             <p>Region: {region}</p>
             <img src={image} alt={name}/>
             <div>
-                {!isSaved ? <button className="Flag-Save" onClick={handleSave}>Save</button> : <button className="Flag-Remove" onClick={handleRemove}>Remove</button>}
-                <button className="Flag-More" onClick={handleClick} >More</button>
-                {/* <Navigate className="Flag-More" to={`/details/${name}`} state={countryData} >More</Navigate> */}
+                {!isSaved ? <button className="Flag-Save" onClick={handleToggleSave}>Save</button> : <button className="Flag-Remove" onClick={handleToggleSave}>Remove</button>}
+                <button className="Flag-More" onClick={handleMoreRoute} >More</button>
             </div>
         </div>
     )

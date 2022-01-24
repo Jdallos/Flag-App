@@ -10,29 +10,22 @@ export default function Details() {
     useLayoutEffect(() => {
         window.scrollTo(0, 0)
     });
+
     const { countryName } = useParams();
     const { state } = useLocation();
-    const {saved, setSaved} = useContext(SaveContext);
+    const { toggleSaveFlag } = useContext(SaveContext);
     
     const data = [state][0];
     // Remove whitespace to give full name to unsplash
     const noSpaceCountryName = countryName.replace(/\s/, '');
     let imgUrl = `https://source.unsplash.com/600x400?${noSpaceCountryName}`;
-
-    function toggleSaveOnClick(){
-        // Why doesn't this run on repeat clicks?
-        console.log('clicked',data);
+  
+    function handleToggleSave(){
+        toggleSaveFlag(data.id, data.isSaved ? !data.isSaved : true);
+        // Should this be a new object and not mutating...?
         data.isSaved = !data.isSaved;
-        if(data.isSaved){
-            setSaved([...saved, data]);
-        }else{
-            const updatedSaved = saved.filter((flag) => (
-                flag.ccn3 !== data.ccn3
-            ));
-            setSaved(updatedSaved);
-        }
-        
     }
+
     return (
         <div className="Details">
             {data
@@ -42,7 +35,7 @@ export default function Details() {
                         <nav><Link to="/">Back to all flags</Link></nav>
                         <div>
                             <h1>{data.name.common}</h1>
-                            {!state.isSaved ? <button className="Details-Save" onClick={toggleSaveOnClick} >Save</button> : <button className="Details-Remove" onClick={toggleSaveOnClick}>Remove</button>}
+                            {!data.isSaved ? <button className="Details-Save" onClick={handleToggleSave} >Save</button> : <button className="Details-Remove" onClick={handleToggleSave}>Remove</button>}
                             <img className="Details-FlagImage" src={data.flags.png} alt={data.name.common} />
                             <ul>
                                 <li><span className="Details-ListKey">Capital:</span> {data.capital ? data.capital : 'N/A'}</li>

@@ -7,15 +7,10 @@ import './styles/FlagApp.css';
 
 
 function FlagApp() {
-    // API call and countries storage
-    const [countries, setCountries] = useState("");
-    // to generate the list of saved
-    // const [saved, setSaved] = useState(JSON.parse(window.localStorage.getItem("saved") || "[]"));
+    const {saved, countries, setCountries} = useContext(SaveContext);
+
     const [numToDisplay, setNumToDisplay] = useState(50);
     const [isLoading, setIsLoading] = useState(false);
-    // Declaired Details state in App as how else to pass to more route?
-
-    const {saved, setSaved} = useContext(SaveContext);
 
     useEffect(() => {
         setIsLoading(true);
@@ -45,7 +40,6 @@ function FlagApp() {
             }
         }
         fetchData();
-
         // The below comment prevents an error from using saved state in useEffect- I believe this is ok...
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -54,38 +48,6 @@ function FlagApp() {
     useEffect(() => {
         window.localStorage.setItem("saved", JSON.stringify(saved));
     }, [saved]);
-
-    function saveFlag(newFlagId, toSave) {
-        let newFlag = countries.filter((country) => (
-            country.cca3 === newFlagId
-        ));
-        if (toSave) {
-            newFlag = updateIsSavedInCountryList(newFlag, newFlagId, true);
-            console.log('working', newFlag);
-            setSaved([...saved, ...newFlag]);
-        }
-        else {
-            let updatedSaved = saved.filter((country) => (
-                country.cca3 !== newFlagId
-            ));
-            setSaved(updatedSaved);
-            updateIsSavedInCountryList(newFlag, newFlagId, false);
-        }
-    };
-
-    function updateIsSavedInCountryList(newFlag, newFlagId, saving) {
-        newFlag[0].isSaved = saving;
-
-        let updatedCountries = countries.map((country) => {
-            if (country.cca3 === newFlagId) {
-                return newFlag[0];
-            } else {
-                return country;
-            }
-        });
-        setCountries(updatedCountries);
-        return newFlag;
-    };
 
     function displayMore() {
         setNumToDisplay(numToDisplay + 50);
@@ -97,11 +59,9 @@ function FlagApp() {
             <h4 className="FlagApp-Sub">A React app to learn more about the countries of the world and their flags!</h4>
             <SavedFlags
                 saved={saved}
-                saveFlag={saveFlag}
             />
             <FlagList
                 countries={countries}
-                saveFlag={saveFlag}
                 displayMore={displayMore}
                 numToDisplay={numToDisplay}
                 isLoading={isLoading}
