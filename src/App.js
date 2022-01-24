@@ -1,24 +1,26 @@
-import React,{ useState } from 'react';
+import React, { useState } from 'react';
 import FlagApp from './FlagApp';
-import {Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Details from './Details';
 import Redirect from './Redirect';
 import Footer from './Footer';
+import { SaveProvider } from './contexts/SaveContext';
 import './styles/App.css';
 
 function App() {
-    // Can this state be moved into FlagApp?
-    const [detailsData, setDetailsData] = useState();
+  // Can this state be moved into FlagApp?
+  // const [detailsData, setDetailsData] = useState();
 
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<FlagApp setDetailsData={setDetailsData} />} />
-        <Route path="/details/:countryName" element={<Details data={detailsData} />} />
-        <Route path="/redirect" element={<Redirect />} />
-        <Route path="*" element={<Redirect />} />
+      <SaveProvider>
+        <Routes>
+          <Route path="/" element={<FlagApp />} />
+          <Route path="/details/:countryName" element={<Details />} />
+          <Route path="*" element={<Redirect />} />
 
-      </Routes>
+        </Routes>
+      </SaveProvider>
       <Footer />
     </div>
   );

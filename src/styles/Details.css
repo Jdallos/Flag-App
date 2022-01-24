@@ -20,6 +20,11 @@
   font-size: 2em;
   border-bottom: double 0.2rem goldenrod;
   width: fit-content;
+  display:inline-block;
+}
+
+.Details-FlagImage{
+  display:block;
 }
 
 .Details-ListKey{
@@ -33,4 +38,35 @@
 .Details-Image img {
   width: 600px;
   height: 400px;
+}
+
+.Details button{
+  margin:0 3rem;
+  padding:0.4rem 1rem;
+  border-radius:5%;
+  font-family: 'Roboto', sans-serif;
+  transition:all 0.2s;
+  font-weight: 700;
+  display:inline-block;
+}
+
+.Details button:hover{
+  transform: translateY(-1px);
+  cursor:pointer;
+}
+
+.Details-Save{
+  background-color: rgb(197, 243, 127);
+  font-size: 1em;
+}
+.Details-Save:hover{
+  background-color: rgb(170, 238, 69);
+}
+
+.Details-Remove{
+  background-color: rgb(240, 72, 72);
+  font-size: 1em;
+}
+.Details-Remove:hover{
+  background-color: rgb(231, 50, 50);
 }

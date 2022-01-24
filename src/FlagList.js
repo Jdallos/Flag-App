@@ -3,7 +3,7 @@ import Flag from './Flag'
 import './styles/FlagList.css';
 
 
-function FlagList({ countries, saveFlag, numToDisplay, displayMore, isLoading, setDetailsData }) {
+function FlagList({ countries, saveFlag, numToDisplay, displayMore, isLoading }) {
 
     function makeCountry() {
         return countries.map((country, index) => {
@@ -16,7 +16,6 @@ function FlagList({ countries, saveFlag, numToDisplay, displayMore, isLoading, s
                     saveFlag={saveFlag}
                     id={country.cca3}
                     isSaved={country.isSaved}
-                    setDetailsData = {setDetailsData}
                     countryData = {country}
                 />
             }

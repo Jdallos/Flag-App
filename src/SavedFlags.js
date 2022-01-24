@@ -2,7 +2,7 @@ import React from 'react';
 import Flag from './Flag.js';
 import './styles/SavedFlags.css';
 
-function SavedFlags({ saved, saveFlag, setDetailsData }) {
+function SavedFlags({ saved, saveFlag }) {
 
     function makeSaved() {
         return saved.map((country) => (
@@ -14,7 +14,6 @@ function SavedFlags({ saved, saveFlag, setDetailsData }) {
                 key={country.ccn3}
                 saveFlag={saveFlag}
                 id={country.cca3}
-                setDetailsData={setDetailsData}
                 countryData={country}
             />
         ))

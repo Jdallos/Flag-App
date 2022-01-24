@@ -1,18 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import FlagList from './FlagList';
 import SavedFlags from './SavedFlags';
 import axios from 'axios';
+import {SaveContext} from './contexts/SaveContext';
 import './styles/FlagApp.css';
 
 
-function FlagApp({ setDetailsData }) {
+function FlagApp() {
     // API call and countries storage
     const [countries, setCountries] = useState("");
     // to generate the list of saved
-    const [saved, setSaved] = useState(JSON.parse(window.localStorage.getItem("saved") || "[]"));
+    // const [saved, setSaved] = useState(JSON.parse(window.localStorage.getItem("saved") || "[]"));
     const [numToDisplay, setNumToDisplay] = useState(50);
     const [isLoading, setIsLoading] = useState(false);
     // Declaired Details state in App as how else to pass to more route?
+
+    const {saved, setSaved} = useContext(SaveContext);
 
     useEffect(() => {
         setIsLoading(true);
@@ -58,6 +61,7 @@ function FlagApp({ setDetailsData }) {
         ));
         if (toSave) {
             newFlag = updateIsSavedInCountryList(newFlag, newFlagId, true);
+            console.log('working', newFlag);
             setSaved([...saved, ...newFlag]);
         }
         else {
@@ -94,7 +98,6 @@ function FlagApp({ setDetailsData }) {
             <SavedFlags
                 saved={saved}
                 saveFlag={saveFlag}
-                setDetailsData={setDetailsData}
             />
             <FlagList
                 countries={countries}
@@ -102,7 +105,6 @@ function FlagApp({ setDetailsData }) {
                 displayMore={displayMore}
                 numToDisplay={numToDisplay}
                 isLoading={isLoading}
-                setDetailsData={setDetailsData}
             />
         </div>
     )

@@ -10,7 +10,7 @@
     height: 160px;
 }
 
-.Flag button, .Flag a{
+.Flag button{
     margin:0.5rem;
     padding:0.4rem 1rem;
     border-radius:5%;
@@ -20,7 +20,7 @@
     display:inline-block;
 }
 
-.Flag button:hover, .Flag a:hover{
+.Flag button:hover{
     transform: translateY(-1px);
     cursor:pointer;
 }
@@ -46,7 +46,7 @@
     border-left: 1.8px solid rgb(99, 99, 99); 
     border-right: 2px solid black; 
     border-bottom: 2px solid black; 
-    text-decoration: none;
+    font-size: 1em;
     color:black;
 }
 .Flag-More:hover{
