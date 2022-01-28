@@ -16,6 +16,7 @@ export default function Details() {
     const { toggleSaveFlag } = useContext(SaveContext);
     
     const data = [state][0];
+
     // Remove whitespace to give full name to unsplash
     const noSpaceCountryName = countryName.replace(/\s/, '');
     let imgUrl = `https://source.unsplash.com/600x400?${noSpaceCountryName}`;

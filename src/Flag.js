@@ -12,7 +12,6 @@ function Flag({ name, image, region, isSaved, id, countryData }) {
     }
   
     let navigate = useNavigate();
-
     function handleMoreRoute() {
       navigate(`/details/${name}`, {state: {...countryData, isSaved, id}});
     }

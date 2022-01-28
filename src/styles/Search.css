@@ -1,0 +1,70 @@
+.Search {
+  display:flex;
+  align-content: center;
+  justify-content: center;
+} 
+
+.Search form{
+    width:80%;
+    text-align: center;
+}
+
+.Search label {
+  font-size: 1.5em;
+  font-weight: bold;
+  border-bottom: double 0.2rem goldenrod;
+  color:rgb(32, 29, 1);
+}
+
+#search{
+    margin: 2rem 2rem 1rem 3rem;
+    padding:0.3rem;
+    font-size: 1.4rem;
+    width: 43%;
+    border:none;
+    background-color: rgba(255, 255, 255, 0.671);
+}
+
+#search:focus{
+  background-color: white;
+}
+
+.Search button{
+  margin:0.5rem;
+  padding:0.4rem 1rem;
+  border-radius:5%;
+  font-family: 'Roboto', sans-serif;
+  transition:all 0.2s;
+  font-weight: 700;
+  display:inline-block;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  background-color: rgb(255, 189, 21);
+}
+
+.Search button:hover{
+  transform: translateY(-1px);
+  cursor:pointer;
+  background-color: rgb(255, 208, 0);
+
+}
+
+.Search-ErrorMessage {
+  color: red;
+  margin: 0.2rem;
+}
+
+.Search-HideErrorMessage {
+  opacity: 0;
+  margin: 0.2rem;
+}
+
+ul.react-autocomplete-input {
+  width: 35%;
+}
+
+ul.react-autocomplete-input > li.active {
+  background-color: goldenrod;
+  font-size: 1.2em;
+}
+
