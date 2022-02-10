@@ -1,18 +1,13 @@
-import React from 'react';
+// import React, { useContext } from 'react';
+// import { SaveContext } from './contexts/SaveContext.js';
 import Flag from './Flag.js';
 import './styles/SavedFlags.css';
 
 function SavedFlags({ saved }) {
-
     function makeSaved() {
         return saved.map((country) => (
             <Flag
-                name={country.name.common}
-                region={country.region}
-                image={country.flags.png}
-                isSaved={country.isSaved}
                 key={country.ccn3}
-                id={country.cca3}
                 countryData={country}
             />
         ))

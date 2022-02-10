@@ -10,7 +10,7 @@ import './styles/FlagApp.css';
 
 
 function FlagApp() {
-    const { saved, countries, setCountries } = useContext(SaveContext);
+    const { state: { saved, countries }, dispatch } = useContext(SaveContext);
 
     const [numToDisplay, setNumToDisplay] = useState(50);
     const [isLoading, setIsLoading] = useState(false);
@@ -28,7 +28,6 @@ function FlagApp() {
                     .map((value) => ({ value, sort: Math.random() }))
                     .sort((a, b) => a.sort - b.sort)
                     .map(({ value }) => value);
-
                 // Update new Countries from localStorage to indicate if already saved
                 let withSavedCountries = shuffled.map((country) => {
                     for (let each of saved) {
@@ -37,9 +36,13 @@ function FlagApp() {
                             return country;
                         }
                     }
+                    country.isSaved = false;
                     return country;
                 });
-                setCountries(withSavedCountries);
+                dispatch({
+                    type: 'AddCountries',
+                    payload: withSavedCountries,
+                });
                 setIsLoading(false);
             } catch (e) {
                 alert(e);
@@ -83,8 +86,6 @@ function FlagApp() {
         // The below comment prevents an error from using navigate in useEffect- I believe this is ok...
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchItem])
-
-
 
     function displayMore() {
         setNumToDisplay(numToDisplay + 50);

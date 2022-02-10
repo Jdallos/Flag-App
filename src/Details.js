@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useContext } from 'react';
 import { Link, useParams, Navigate, useLocation } from 'react-router-dom';
-import {SaveContext} from './contexts/SaveContext';
+import { SaveContext } from './contexts/SaveContext';
 import './styles/Details.css';
 import './styles/Flag.css';
 
@@ -13,17 +13,26 @@ export default function Details() {
 
     const { countryName } = useParams();
     const { state } = useLocation();
-    const { toggleSaveFlag } = useContext(SaveContext);
-    
+    const { dispatch } = useContext(SaveContext);
+
     const data = [state][0];
 
     // Remove whitespace to give full name to unsplash
     const noSpaceCountryName = countryName.replace(/\s/, '');
     let imgUrl = `https://source.unsplash.com/600x400?${noSpaceCountryName}`;
-  
-    function handleToggleSave(){
-        toggleSaveFlag(data.id, data.isSaved ? !data.isSaved : true);
-        // Should this be a new object and not mutating...?
+
+    function handleToggleSave() {
+        if (data.isSaved) {
+            dispatch({
+                type: 'Remove',
+                payload: data
+            })
+        } else {
+            dispatch({
+                type: 'Save',
+                payload: data
+            })
+        }
         data.isSaved = !data.isSaved;
     }
 

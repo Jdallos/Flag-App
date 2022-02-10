@@ -9,12 +9,7 @@ function FlagList({ countries, numToDisplay, displayMore, isLoading }) {
         return countries.map((country, index) => {
             if (index < numToDisplay) {
                 return <Flag
-                    name={country.name.common}
-                    region={country.region}
-                    image={country.flags.png}
                     key={country.cca3}
-                    id={country.cca3}
-                    isSaved={country.isSaved}
                     countryData = {country}
                 />
             }
